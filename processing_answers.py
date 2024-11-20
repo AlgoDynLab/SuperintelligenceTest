@@ -37,8 +37,7 @@ model.init()
 print(model)
 
 timegpt = NixtlaClient(
-    # defaults to os.environ.get("TIMEGPT_TOKEN")
-    # api_key="vGgi9lsf7E4HYwJSnz2m34nAWRO5STxS9hHMJbptSNSmTqMtTylXEEsjNpe8RerEp8Ao02gRzhfJxGi5f2J4OQCgWI6JIIEBMqoTNRNUnrP930rAnmqwwihyLuwgTeo7RYhQSCpJyw5bWVVUddki8l8a1Qh2AH9GITPNlABbOQuX6atPVNSYanYCedXcl8VjbyprosRVhPwFkn0JsN73FKb1VBGGESyaLb8ZMsyGBhUMCfY7M17kkKIrZP2sdc2a"
+    # get your token API here: https://dashboard.nixtla.io/sign_in
     api_key="nixak-UjDfWxOwCGaiKbl7tt8YecF4QEiCoKxgzw1DHxW9URqeh5KqFfHW2zRIIbIKS997PLzcI07kChtqEdeP"
 )
 
@@ -53,6 +52,23 @@ pipeline = ChronosPipeline.from_pretrained(
 
 
 def check_no_alphabetical_characters_all_string_sequences(list_str_squences):
+    """
+    Validates that a list of comma-separated string sequences can be converted to integers.
+
+    Args:
+        list_str_squences (list): List of strings, where each string contains
+            comma-separated values that should represent integers.
+
+    Prints:
+        For each sequence:
+        - Success message with counter if conversion succeeds
+        - Error message with counter and problematic sequence if conversion fails
+
+    Note:
+        Function attempts to split each string on commas and convert resulting
+        substrings to integers. Any conversion failures (e.g. due to non-numeric
+        characters) are caught and reported.
+    """
     counter = 0
     for str_sq in list_str_squences:
         counter = counter + 1
