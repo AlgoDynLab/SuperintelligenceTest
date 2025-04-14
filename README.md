@@ -21,7 +21,7 @@ where:
 - $\rho_1$ is the percentage of Correct \& Non-Prints \& Non-Ordinal results;
 - $\rho_2$ is the percentage of Correct \& Ordinal results;
 - $\rho_3$ is the percentage of Correct \& Prints results;
-- $\rho_4$ is the percentage of Incorrect results;
+- $\rho_4$ is the percentage of Incorrect results (therefore, $1-\rho_1-\rho_2-\rho_3$);
 - $\delta_i$, for $i = 1,2,3$ is a weighting factor determining how well the LLM compressed the original sequence and ranges from 0 (no compression) to 1 (perfect compression in an algorithmic sense). This weighting factor is calculated by using the principles of Algorithmic Information Theory.
 
 It can be seen that $\sum \rho_i = 1$ and that $\varphi \in [0,1]$ encompasses different behaviours. For example, $\varphi \in [0,0.01]$ if only print-type models are outputted. Also, $\varphi \in [0,0.1]$ if only ordinal-like formulas are created. Finally, $\varphi \in [0,1]$ in cases where the LLMs create formulas that are always correct, do not copy nor create ordinal mappings. The ranges will be populated with varying compression levels corresponding to the algorithms obtained. Overall, if the score is 0, all the formulas were wrong. If it is 0.5, it can represent the case where half the outputs were correct and half wrong, with the formulas produced with highest compression levels. So, in a regular half and half case, since compression will not be optimal, the test score is less than 0.5.
