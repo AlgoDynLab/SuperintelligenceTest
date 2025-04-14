@@ -13,7 +13,7 @@ In general, when prompting an Large Language Model (LLM) to create a formula to 
 On the other hand, a fourth possible outcome is the case where the LLM was unable to reproduce the sequence correctly. Thus, the SuperARC-Seq score $\varphi$ can be calculated as:
 
 ```math
-\varphi = \frac{\delta_1\rho_1}{2} +\frac{\delta_2\rho_2}{4}+\frac{\delta_3\rho_3}{8} - \frac{\rho_4}{2}+\frac{1}{2}
+\varphi = \delta_1\rho_1 +\frac{\delta_2\rho_2}{10}+\frac{\delta_3\rho_3}{100}.
 ```
 
 where:
@@ -24,7 +24,7 @@ where:
 - $\rho_4$ is the percentage of Incorrect results;
 - $\delta_i$, for $i = 1,2,3$ is a weighting factor determining how well the LLM compressed the original sequence and ranges from 0 (no compression) to 1 (perfect compression in an algorithmic sense). This weighting factor is calculated by using the principles of Algorithmic Information Theory.
 
-It can be seen that $\sum \rho_i = 1$ and that $\varphi \in [0,1]$ encompasses different behaviours. For example, $\varphi \in [0.5,0.625]$ if only print-type models are outputted. Also, $\varphi \in [0.5,0.75]$ if only ordinal-like formulas are created. Finally, $\varphi \in [0.5,1]$ in cases where the LLMs create formulas that are always correct, do not copy nor create ordinal mappings. The ranges will be populated with varying compression levels corresponding to the algorithms obtained. Overall, if the score is 0, all the formulas were wrong. If it is 0.5, it can represent the case where half the outputs were correct and half wrong, with the formulas produced with highest compression levels. So, in a regular half and half case, since compression will not be optimal, the test score is less than 0.5.
+It can be seen that $\sum \rho_i = 1$ and that $\varphi \in [0,1]$ encompasses different behaviours. For example, $\varphi \in [0,0.01]$ if only print-type models are outputted. Also, $\varphi \in [0,0.1]$ if only ordinal-like formulas are created. Finally, $\varphi \in [0,1]$ in cases where the LLMs create formulas that are always correct, do not copy nor create ordinal mappings. The ranges will be populated with varying compression levels corresponding to the algorithms obtained. Overall, if the score is 0, all the formulas were wrong. If it is 0.5, it can represent the case where half the outputs were correct and half wrong, with the formulas produced with highest compression levels. So, in a regular half and half case, since compression will not be optimal, the test score is less than 0.5.
 
 # Leaderboard for SuperARC-Seq
 
@@ -34,23 +34,25 @@ It can be seen that $\sum \rho_i = 1$ and that $\varphi \in [0,1]$ encompasses d
 | Model              | $\rho_1$ | $\rho_2$ | $\rho_3$ | $\rho_4$ | $\delta_1$ | $\delta_2$ | $\delta_3$ | $\varphi$ |
 |--------------------|------------|------------|------------|------------|--------------|--------------|--------------|-------------|
 | ASI (AIXI/BDM/CTM) | 1.000      | 0.000      | 0.000      | 0.000      | 1.000        | 0.000        | 1.000        | 1.000       |
-| gpt\_4o\_mini      | 0.205      | 0.000      | 0.795      | 0.000      | 0.991        | 0.000        | 0.169        | 0.619       |
-| mistral            | 0.253      | 0.000      | 0.526      | 0.221      | 0.959        | 0.000        | 0.116        | 0.518       |
-| claude\_3.7        | 0.200      | 0.426      | 0.184      | 0.189      | 0.938        | 0.032        | 0.311        | 0.510       |
-| deepseek           | 0.316      | 0.000      | 0.526      | 0.158      | 0.358        | 0.000        | 0.116        | 0.485       |
-| cursor\_small      | 0.253      | 0.000      | 0.526      | 0.221      | 0.534        | 0.000        | 0.141        | 0.466       |
-| chatgpt\_4.5       | 0.216      | 0.526      | 0.000      | 0.258      | 0.815        | 0.030        | 0.000        | 0.463       |
-| qwen               | 0.311      | 0.000      | 0.526      | 0.163      | 0.212        | 0.000        | 0.116        | 0.459       |
-| gemini             | 0.216      | 0.000      | 0.526      | 0.258      | 0.221        | 0.000        | 0.141        | 0.404       |
-| o1\_mini           | 0.179      | 0.337      | 0.074      | 0.411      | 0.565        | 0.058        | 0.215        | 0.352       |
-| gpt\_4o            | 0.216      | 0.000      | 0.216      | 0.568      | 0.992        | 0.000        | 0.267        | 0.330       |
-| o1\_preview        | 0.179      | 0.153      | 0.074      | 0.595      | 0.565        | 0.048        | 0.215        | 0.257       |
-| grok\_3            | 0.221      | 0.011      | 0.000      | 0.768      | 0.700        | 0.424        | 0.000        | 0.194       |
-| claude\_3.5        | 0.084      | 0.258      | 0.000      | 0.658      | 0.110        | 0.121        | 0.000        | 0.183       |
-| meta               | 0.258      | 0.000      | 0.000      | 0.742      | 0.204        | 0.000        | 0.000        | 0.155       |
+| chatgpt\_4.5       | 0.00       | 1.00       | 0.0        | 0.00       | 0.000        | 0.419        | 0.000        | 0.042       |
+| o1\_mini           | 0.00       | 0.64       | 0.0        | 0.36       | 0.000        | 0.537        | 0.000        | 0.034       |
+| claude\_3.7        | 0.00       | 0.81       | 0.0        | 0.19       | 0.000        | 0.407        | 0.000        | 0.033       |
+| claude\_3.5        | 0.06       | 0.14       | 0.0        | 0.80       | 0.449        | 0.428        | 0.000        | 0.033       |
+| o1\_preview        | 0.00       | 0.29       | 0.0        | 0.71       | 0.000        | 0.423        | 0.000        | 0.012       |
+| gpt\_4o\_mini      | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
+| cursor\_small      | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
+| gemini             | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
+| mistral            | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.710        | 0.007       |
+| qwen               | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.710        | 0.007       |
+| deepseek           | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.710        | 0.007       |
+| grok\_3            | 0.00       | 0.02       | 0.0        | 0.98       | 0.000        | 0.318        | 0.000        | 0.001       |
+| gpt\_4o            | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| meta               | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+
 
 Both the plot and the Leaderboard table show how most frontier models are close to each other in their performance and far from Artificial General Intelligence (AGI) or Artificial Super Intelligence (ASI) goals according to this test. ASI would be able to distinguish simpler from complex sequences and generate predictive models for each accordingly, as AIXI or Coding Theorem Method/Block Decomposition Method (CTM/BDM) would do as instantiations of universal AI hence ASI. Today, LLMs only produce or retrieve models for sequences that were seen and found in their original training sets, given that increasing the sequences' lengths impacts the LLM performance in identifying the sequence, hence indicating sequences are not recognised from first principles but from simplistic pattern matching.
 
+It is important to notice that SuperARC-seq only takes into account binary sequences. Whenever integer sequences were considered, a clear biasing of the results was observed as LLMs started to take advantage of their training corpus to actually show memorization rather than abstraction/comprehension.
 
 ### Description of the files
 
