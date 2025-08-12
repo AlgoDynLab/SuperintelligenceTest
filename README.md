@@ -59,14 +59,14 @@ It is important to notice that SuperARC-seq only takes into account binary seque
 
 
 
-### Improvement (August 2025)
+## Update (August 11th, 2025)
 
 ![Ranking](rankingSuperARC_august_2025.png)
 
-Updated superarc-seq leaderboard (August 2025):
+
 | Model              | $\rho_1$ | $\rho_2$ | $\rho_3$ | $\rho_4$ | $\delta_1$ | $\delta_2$ | $\delta_3$ | $\varphi$ |
 |--------------------|------------|------------|------------|------------|--------------|--------------|--------------|-------------|
-| ASI (AIXI/BDM/CTM) | 1.000      | 0.000      | 0.000      | 0.000      | 1.000        | 0.000        | 1.000        | 1.000       |
+| ASI  | 1.000      | 0.000      | 0.000      | 0.000      | 1.000        | 0.000        | 1.000        | 1.000       |
 | chatgpt\_4.5       | 0.00       | 1.00       | 0.0        | 0.00       | 0.000        | 0.419        | 0.000        | 0.042       |
 | o1\_mini           | 0.00       | 0.64       | 0.0        | 0.36       | 0.000        | 0.537        | 0.000        | 0.034       |
 | claude\_3.7        | 0.00       | 0.81       | 0.0        | 0.19       | 0.000        | 0.407        | 0.000        | 0.033       |
@@ -92,7 +92,7 @@ Updated superarc-seq leaderboard (August 2025):
 | gpt\_4o            | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
 
 
-![Improvement](improvement_analysis_aug2025.png)
+![Update](improvement_analysis_aug2025.png)
 
 ### Description of the files
 
