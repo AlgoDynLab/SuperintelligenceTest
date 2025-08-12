@@ -28,9 +28,42 @@ It can be seen that $\sum \rho_i = 1$ and that $\varphi \in [0,1]$ encompasses d
 
 # Leaderboard for SuperARC-Seq
 
-![Ranking](rankingSuperARC.png)
+![Ranking](rankingSuperARC1.png)
+
+Original SuperARC-Seq leaderboard:
+| Model              | $\rho_1$ | $\rho_2$ | $\rho_3$ | $\rho_4$ | $\delta_1$ | $\delta_2$ | $\delta_3$ | $\varphi$ |
+|--------------------|-----------|-----------|-----------|-----------|-------------|-------------|-------------|------------|
+| ASI (AIXI/BDM/CTM) | 1.000     | 0.000     | 0.000     | 0.000     | 1.000       | 0.000       | 1.000       | 1.000      |
+| chatgpt_4.5        | 0.00      | 1.00      | 0.0       | 0.00      | 0.000       | 0.419       | 0.000       | 0.042      |
+| o1_mini            | 0.00      | 0.64      | 0.0       | 0.36      | 0.000       | 0.537       | 0.000       | 0.034      |
+| claude_3.7         | 0.00      | 0.81      | 0.0       | 0.19      | 0.000       | 0.407       | 0.000       | 0.033      |
+| claude_3.5         | 0.06      | 0.14      | 0.0       | 0.80      | 0.449       | 0.428       | 0.000       | 0.033      |
+| o1_preview         | 0.00      | 0.29      | 0.0       | 0.71      | 0.000       | 0.423       | 0.000       | 0.012      |
+| gpt_4o_mini        | 0.00      | 0.00      | 1.0       | 0.00      | 0.000       | 0.000       | 0.762       | 0.008      |
+| cursor_small       | 0.00      | 0.00      | 1.0       | 0.00      | 0.000       | 0.000       | 0.762       | 0.008      |
+| gemini             | 0.00      | 0.00      | 1.0       | 0.00      | 0.000       | 0.000       | 0.762       | 0.008      |
+| mistral            | 0.00      | 0.00      | 1.0       | 0.00      | 0.000       | 0.000       | 0.710       | 0.007      |
+| qwen               | 0.00      | 0.00      | 1.0       | 0.00      | 0.000       | 0.000       | 0.710       | 0.007      |
+| deepseek           | 0.00      | 0.00      | 1.0       | 0.00      | 0.000       | 0.000       | 0.710       | 0.007      |
+| grok_3             | 0.00      | 0.02      | 0.0       | 0.98      | 0.000       | 0.318       | 0.000       | 0.001      |
+| gpt_4o             | 0.00      | 0.00      | 0.0       | 1.00      | 0.000       | 0.000       | 0.000       | 0.000      |
+| meta               | 0.00      | 0.00      | 0.0       | 1.00      | 0.000       | 0.000       | 0.000       | 0.000      |
 
 
+
+
+
+Both the plot and the Leaderboard table show how most frontier models are close to each other in their performance and far from Artificial General Intelligence (AGI) or Artificial Super Intelligence (ASI) goals according to this test. ASI would be able to distinguish simpler from complex sequences and generate predictive models for each accordingly, as AIXI or Coding Theorem Method/Block Decomposition Method (CTM/BDM) would do as instantiations of universal AI hence ASI. Today, LLMs only produce or retrieve models for sequences that were seen and found in their original training sets, given that increasing the sequences' lengths impacts the LLM performance in identifying the sequence, hence indicating sequences are not recognised from first principles but from simplistic pattern matching.
+
+It is important to notice that SuperARC-seq only takes into account binary sequences. Whenever integer sequences were considered, a clear biasing of the results was observed as LLMs started to take advantage of their training corpus to actually show memorization rather than abstraction/comprehension.
+
+
+
+### Improvement (August 2025)
+
+![Ranking](rankingSuperARC_august_2025.png)
+
+Updated superarc-seq leaderboard (August 2025):
 | Model              | $\rho_1$ | $\rho_2$ | $\rho_3$ | $\rho_4$ | $\delta_1$ | $\delta_2$ | $\delta_3$ | $\varphi$ |
 |--------------------|------------|------------|------------|------------|--------------|--------------|--------------|-------------|
 | ASI (AIXI/BDM/CTM) | 1.000      | 0.000      | 0.000      | 0.000      | 1.000        | 0.000        | 1.000        | 1.000       |
@@ -39,20 +72,27 @@ It can be seen that $\sum \rho_i = 1$ and that $\varphi \in [0,1]$ encompasses d
 | claude\_3.7        | 0.00       | 0.81       | 0.0        | 0.19       | 0.000        | 0.407        | 0.000        | 0.033       |
 | claude\_3.5        | 0.06       | 0.14       | 0.0        | 0.80       | 0.449        | 0.428        | 0.000        | 0.033       |
 | o1\_preview        | 0.00       | 0.29       | 0.0        | 0.71       | 0.000        | 0.423        | 0.000        | 0.012       |
-| gpt\_4o\_mini      | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
-| cursor\_small      | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
 | gemini             | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
+| cursor\_small      | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
+| gpt\_4o\_mini      | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.762        | 0.008       |
 | mistral            | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.710        | 0.007       |
 | qwen               | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.710        | 0.007       |
 | deepseek           | 0.00       | 0.00       | 1.0        | 0.00       | 0.000        | 0.000        | 0.710        | 0.007       |
+| llama\_4\_scout    | 0.01       | 0.00       | 0.0        | 0.99       | 0.450        | 0.000        | 0.000        | 0.004       |
 | grok\_3            | 0.00       | 0.02       | 0.0        | 0.98       | 0.000        | 0.318        | 0.000        | 0.001       |
-| gpt\_4o            | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| qwen3              | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| chatgpt\_5         | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| grok4              | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| deepseek\_r1\_0528 | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| opus\_4            | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| mistral\_large2405 | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| gemini\_2.5\_pro   | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| claude\_sonnet\_4  | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
 | meta               | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
+| gpt\_4o            | 0.00       | 0.00       | 0.0        | 1.00       | 0.000        | 0.000        | 0.000        | 0.000       |
 
 
-Both the plot and the Leaderboard table show how most frontier models are close to each other in their performance and far from Artificial General Intelligence (AGI) or Artificial Super Intelligence (ASI) goals according to this test. ASI would be able to distinguish simpler from complex sequences and generate predictive models for each accordingly, as AIXI or Coding Theorem Method/Block Decomposition Method (CTM/BDM) would do as instantiations of universal AI hence ASI. Today, LLMs only produce or retrieve models for sequences that were seen and found in their original training sets, given that increasing the sequences' lengths impacts the LLM performance in identifying the sequence, hence indicating sequences are not recognised from first principles but from simplistic pattern matching.
-
-It is important to notice that SuperARC-seq only takes into account binary sequences. Whenever integer sequences were considered, a clear biasing of the results was observed as LLMs started to take advantage of their training corpus to actually show memorization rather than abstraction/comprehension.
+![Improvement](improvement_analysis_aug2025.png)
 
 ### Description of the files
 
@@ -68,3 +108,4 @@ It is important to notice that SuperARC-seq only takes into account binary seque
 - `09_random_bin_seq_process.ipynb`: Process results in 08.
 - `10_formulae_evaluation.py`: Formulae experimentation.
 - `11_S-ARC_ext.ipynb`: SuperARC-Seq test implementation.
+- `model_progression_standalone.py`: Compute improvement between family of models.
